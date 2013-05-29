@@ -16,7 +16,15 @@ public class score_processing {
 		System.out.print("이름을 입력해주세요. : ");
 		String name = br.readLine();
 		
-		System.out.println("안녕하세요. " + schoolname +" " + grade + "학년" + name + "학생 반갑습니다.");
+		System.out.println("안녕하세요. " + schoolname +" " + grade + "학년 " + name + "학생 반갑습니다.");
+		
+		System.out.print("점수를 입력하실 과목수를 입력해주세요. : ");
+		int subjectnum = Integer.parseInt(br.readLine());
+		
+		for(int i = 1; i<=subjectnum; i++){
+			System.out.print("과목을 입력해주세요 : ");
+			String subject = br.readLine();	
+		}
 	
 	}
 

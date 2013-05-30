@@ -26,12 +26,16 @@ public class score_processing {
 		String subjectsave[] = null;
 		String subject;
 		int subjectgrade;
+		int subgradesave[] = null;
+		int total = 0;
 		
 		for(int i = 0; i<=subjectnum; i++){
 			System.out.print("과목을 입력해주세요 : ");
 			subject = br.readLine();
 			System.out.print(subject + "의 점수를 입력해주세요. : ");
 			subjectgrade = Integer.parseInt(br.readLine());
+			total = subjectgrade/subjectnum;
+			System.out.println(total);
 		}
 	
 	}

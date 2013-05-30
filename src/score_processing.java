@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 public class score_processing {
@@ -8,6 +9,7 @@ public class score_processing {
 		System.out.println("★성적처리프로그램★");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
+		Scanner input = new Scanner(System.in);
 		
 		System.out.print("학교를 입력해주세요 : ");
 		String schoolname = br.readLine();
@@ -21,9 +23,15 @@ public class score_processing {
 		System.out.print("점수를 입력하실 과목수를 입력해주세요. : ");
 		int subjectnum = Integer.parseInt(br.readLine());
 		
-		for(int i = 1; i<=subjectnum; i++){
+		String subjectsave[] = null;
+		String subject;
+		int subjectgrade;
+		
+		for(int i = 0; i<=subjectnum; i++){
 			System.out.print("과목을 입력해주세요 : ");
-			String subject = br.readLine();	
+			subject = br.readLine();
+			System.out.print(subject + "의 점수를 입력해주세요. : ");
+			subjectgrade = Integer.parseInt(br.readLine());
 		}
 	
 	}

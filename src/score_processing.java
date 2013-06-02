@@ -26,17 +26,22 @@ public class score_processing {
 		String subjectsave[] = new String[subjectnum];
 		double subjectgrade;
 		double subgradesave[] = new double[subjectnum];
+		double total = 0;
 
-		for(int i = 1; i<=subjectnum; i++){
+		for(int i = 0; i<=subjectnum; i++){
 			System.out.print("과목을 입력해주세요 : ");
 			subject = input.next();
-			subjectsave[i-0] = subject;
-			System.out.println(subjectsave[i-0]);
+			subjectsave[i] = subject;
+			//System.out.println(subjectsave[i-0]);
+			
 			System.out.print(subject + "의 점수를 입력해주세요. : ");
 			subjectgrade = input.nextDouble();
-			subgradesave[i-0] = subjectgrade;
-			System.out.println(subgradesave[i-0]);
-		
+			subgradesave[i] = subjectgrade;
+			//System.out.println(subgradesave[i-0]);
+			
+			total +=subgradesave[i-0]; 
+			System.out.print(name + "학생의 총 점수는 " + total + "점 입니다." );
+			
 		}
 	
 	}

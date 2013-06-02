@@ -48,9 +48,11 @@ public class score_processing {
 			}
 			total +=subgradesave[i-1]; 
 		}
+		//System.out.println(name")
 		System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
 		avg = total/subjectnum;
-		System.out.println(name + "학생의 평균은 " + avg +"입니다.");
+		String avg2 = String.format("%.2f", avg);
+		System.out.println(name + "학생의 평균은 " + avg2 +"입니다.");
 	}
 
 }

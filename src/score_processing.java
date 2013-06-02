@@ -7,7 +7,7 @@ public class score_processing {
 	public static void main(String args[]) throws Exception {
 		System.out.println("안녕하세요 미림여자정보과학고등학교 3학년 인터랙티브미디어과 이미애입니다.");
 		System.out.println("★성적처리프로그램★");
-		
+		while(true){
 		Scanner input = new Scanner(System.in);
 		
 		System.out.print("학교를 입력해주세요 : ");
@@ -48,11 +48,10 @@ public class score_processing {
 			}
 			total +=subgradesave[i-1]; 
 		}
-		//System.out.println(name")
 		System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
 		avg = total/subjectnum;
 		String avg2 = String.format("%.2f", avg);
 		System.out.println(name + "학생의 평균은 " + avg2 +"입니다.");
 	}
-
+	}
 }

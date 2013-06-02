@@ -27,23 +27,30 @@ public class score_processing {
 		double subjectgrade;
 		double subgradesave[] = new double[subjectnum];
 		double total = 0;
+		double avg = 0;
 
-		for(int i = 0; i<=subjectnum; i++){
+		for(int i = 1; i<=subjectnum; i++){
 			System.out.print("과목을 입력해주세요 : ");
 			subject = input.next();
-			subjectsave[i] = subject;
-			//System.out.println(subjectsave[i-0]);
+			subjectsave[i-1] = subject;
+			//System.out.println(subjectsave[i-1]);
 			
 			System.out.print(subject + "의 점수를 입력해주세요. : ");
 			subjectgrade = input.nextDouble();
-			subgradesave[i] = subjectgrade;
-			//System.out.println(subgradesave[i-0]);
-			
-			total +=subgradesave[i-0]; 
-			System.out.print(name + "학생의 총 점수는 " + total + "점 입니다." );
-			
+			if(subjectgrade>100){
+				System.out.println("과목점수는 100점 이상 적으실 수 없습니다. 다시적어주세요.");
+				System.out.print(subject + "의 점수를 입력해주세요. : ");
+				subjectgrade = input.nextDouble();
+			}
+			else{
+			subgradesave[i-1] = subjectgrade;
+			//System.out.println(subgradesave[i-1]);
+			}
+			total +=subgradesave[i-1]; 
 		}
-	
+		System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
+		avg = total/subjectnum;
+		System.out.println(name + "학생의 평균은 " + avg +"입니다.");
 	}
 
 }

@@ -1,30 +1,77 @@
-import java.awt.Color;
+import java.awt.Button;
+import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 
-public class score_processing extends Frame implements WindowListener {
-	GridLayout G1 = new GridLayout(3,1);
+public class score_processing extends Frame implements WindowListener,ActionListener {
+	GridLayout G1 = new GridLayout(2,1);
+	GridLayout G2 = new GridLayout(4,2);
+	
+	Dialog D1 = new Dialog(this,"정보 입력");
 
 	Panel P1 = new Panel();
+	Panel P2 = new Panel();
+	Panel P3 = new Panel();
+	
+	Button b1 = new Button("시작");
+	Button b2 = new Button("끝내기");
+	Button b3 = new Button("다음");
+	Button b4 = new Button("뒤로");
 
 	Label L1 = new Label("안녕하세요.미림여자정보과학고등학교 3학년 이미애입니다.");
 	Label L2 = new Label("★성적처리프로그램★");
-
+	Label L3 = new Label("학교이름을 입력해 주세요.");
+	Label L4 = new Label("학년을 입력해주세요.(숫자만)");
+	Label L5 = new Label("이름을 입력해주세요.");
+	
+	TextField TF1 = new TextField();
+	TextField TF2 = new TextField();
+	TextField TF3 = new TextField();
+	
 	score_processing(){
 		super("성적처리 프로그램");
-		//P1.setLayout(G1);
-		P1.add(L1);
-		P1.add(L2);
+		P1.setLayout(G1);
+		P2.add(L1);
+		P2.add(L2);
+		P1.add(P2);
+		
+		P3.add(b1);
+		D1.setSize(400,200);//정보 입력
+		b1.addActionListener(this);
+		D1.setLayout(G2);
+		D1.add(L3);
+		D1.add(TF1);
+		D1.add(L4);
+		D1.add(TF2);
+		D1.add(L5);
+		D1.add(TF3);
+		D1.add(b3);
+		b4.addActionListener(this);
+		D1.add(b4);
+		
+		P3.add(b2);
+		P1.add(P3);
 
 		this.add(P1);
 		this.addWindowListener(this);
 		this.setSize(400,400);
 		this.setVisible(true);
+	}
+	public void actionPerformed(ActionEvent e){
+		   if(e.getSource()==b1){// 시작 버튼
+				D1.setVisible(true);
+			}
+		   else if(e.getSource()==b4){//뒤로가기
+				D1.setVisible(false);
+			}
 	}
 	public void windowDeactivated(WindowEvent e){};
 	public void windowActivated(WindowEvent e){};

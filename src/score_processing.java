@@ -17,6 +17,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	Panel P3 = new Panel();
 	Panel P4 = new Panel();//성적입력창
 	Panel P5 = new Panel();
+	Panel P6 = new Panel();//성적 결과
 	
 	Button b1 = new Button("시작");
 	Button b2 = new Button("끝내기");
@@ -41,7 +42,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	TextField TF2 = new TextField();
 	TextField TF3 = new TextField();
 	TextField TF4 = new TextField();
-	TextField TF5 = new TextField();
+	TextField TF5 = new TextField();//여기부터 과목
 	TextField TF6 = new TextField();
 	TextField TF7 = new TextField();
 	TextField TF8 = new TextField();
@@ -71,7 +72,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		
 		F1.setSize(300,300);
 
-		F2.setSize(300,300);
+		F2.setSize(250,250);
 	
 		b4.addActionListener(this);
 		D1.add(b4);
@@ -90,7 +91,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		String schoolname = TF1.getText();
 		String grade = TF2.getText();
 		String name = TF3.getText();
-		String subjectnum = TF4.getText();
+		//String subjectnum = TF4.getText();
 		
 		TF1.selectAll();
 		TF2.selectAll();
@@ -98,7 +99,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		Label L7 = new Label(schoolname+" " + grade + "학년 " + name + "학생!");
 		Label L8 = new Label("안녕하세요. 만나서 반갑습니다.");
 		P4.add(L7);
-		//P4.add(L8);
+		P4.add(L8);
 		
 		P5.setLayout(G3);
 		P5.add(L9);
@@ -111,7 +112,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		P5.add(TF8);
 		P5.add(L13);
 		P5.add(TF9);
-		b6.addActionListener(this);
+		b5.addActionListener(this);
 		P5.add(b5);
 		b6.addActionListener(this);
 		P5.add(b6);
@@ -120,6 +121,36 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		F1.add(P4);
 		F1.add(P5);
 		
+		String korean = TF5.getText();
+		String math = TF6.getText();
+		String society = TF7.getText();
+		String science = TF8.getText();
+		String english= TF9.getText();
+
+		TF5.selectAll();
+		TF6.selectAll();
+		TF7.selectAll();
+		TF8.selectAll();
+		TF9.selectAll();
+
+		Label L14 = new Label(name + "학생의 과목 점수들은");
+		Label L15 = new Label("국어점수 : " + korean);
+		Label L16 = new Label("수학점수 : " + math);
+		Label L17 = new Label("사회점수 : " + society);
+		Label L18 = new Label("과학점수 : " + science);
+		Label L19 = new Label("영어점수 : " + english);
+		
+		P6.add(L14);
+		P6.add(L15);
+		P6.add(L16);
+		P6.add(L17);
+		P6.add(L18);
+		P6.add(L19);
+		F2.add(P6);
+
+		int allnum = 0;
+		//allnum = (int)korean + (int)math + (int)society + (int)science + (int)english);
+
 		   if(e.getSource()==b1){// 시작 버튼
 				D1.setVisible(true);
 			}

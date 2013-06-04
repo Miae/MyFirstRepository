@@ -2,32 +2,50 @@ import java.awt.*;
 import java.awt.event.*;
 public class score_processing extends Frame implements WindowListener,ActionListener {
 	GridLayout G1 = new GridLayout(2,1);
-	GridLayout G2 = new GridLayout(5,2);
-	
+	GridLayout G2 = new GridLayout(4,2);
+	GridLayout G3 = new GridLayout(6,2);
+
+	FlowLayout FL1 = new FlowLayout(FlowLayout.CENTER);
+
 	Dialog D1 = new Dialog(this,"정보 입력");
 	
 	Frame F1 = new Frame("성적 입력");
+	Frame F2 = new Frame("성적 결과");
 
 	Panel P1 = new Panel();
 	Panel P2 = new Panel();
 	Panel P3 = new Panel();
+	Panel P4 = new Panel();//성적입력창
+	Panel P5 = new Panel();
 	
 	Button b1 = new Button("시작");
 	Button b2 = new Button("끝내기");
 	Button b3 = new Button("다음");
-	Button b4 = new Button("뒤로");
+	Button b4 = new Button("뒤로가기");
+	Button b5 = new Button("평균&총점 구하기");
+	Button b6 = new Button("뒤로가기");
 
 	Label L1 = new Label("안녕하세요.미림여자정보과학고등학교 3학년 이미애입니다.");
 	Label L2 = new Label("★성적처리프로그램★");
 	Label L3 = new Label("학교이름을 입력해 주세요.");
 	Label L4 = new Label("학년을 입력해주세요.(숫자만)");
 	Label L5 = new Label("이름을 입력해주세요.");
-	Label L6 = new Label("입력하실 과목 수를 입력해주세요.");
-	
+	//Label L6 = new Label("입력하실 과목 수를 입력해주세요.");
+	Label L9 = new Label("국어점수를 입력하세요 : ");
+	Label L10 = new Label("수학점수를 입력하세요 : ");
+	Label L11 = new Label("사회점수를 입력하세요 : ");
+	Label L12 = new Label("과학점수를 입력하세요 : ");
+	Label L13 = new Label("영어점수를 입력하세요 : ");
+
 	TextField TF1 = new TextField();
 	TextField TF2 = new TextField();
 	TextField TF3 = new TextField();
 	TextField TF4 = new TextField();
+	TextField TF5 = new TextField();
+	TextField TF6 = new TextField();
+	TextField TF7 = new TextField();
+	TextField TF8 = new TextField();
+	TextField TF9 = new TextField();
 	
 	score_processing(){
 		super("성적처리 프로그램");
@@ -46,12 +64,14 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		D1.add(TF2);
 		D1.add(L5);
 		D1.add(TF3);
-		D1.add(L6);
-		D1.add(TF4);
+		//D1.add(L6);
+		//D1.add(TF4);
 		b3.addActionListener(this);
 		D1.add(b3);
 		
-		F1.setSize(500,500);
+		F1.setSize(300,300);
+
+		F2.setSize(300,300);
 	
 		b4.addActionListener(this);
 		D1.add(b4);
@@ -62,7 +82,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 
 		this.add(P1);
 		this.addWindowListener(this);
-		this.setSize(500,500);
+		this.setSize(400,400);
 		this.setVisible(true);
 	}
 
@@ -70,26 +90,59 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		String schoolname = TF1.getText();
 		String grade = TF2.getText();
 		String name = TF3.getText();
-
+		String subjectnum = TF4.getText();
+		
 		TF1.selectAll();
 		TF2.selectAll();
 		TF3.selectAll();
-		Label L7 = new Label(schoolname + " " + grade + "학년 " + name + "학생 안녕하세요. 만나서 반갑습니다.");
-		F1.add(L7);
+		Label L7 = new Label(schoolname+" " + grade + "학년 " + name + "학생!");
+		Label L8 = new Label("안녕하세요. 만나서 반갑습니다.");
+		P4.add(L7);
+		//P4.add(L8);
+		
+		P5.setLayout(G3);
+		P5.add(L9);
+		P5.add(TF5);
+		P5.add(L10);
+		P5.add(TF6);
+		P5.add(L11);
+		P5.add(TF7);
+		P5.add(L12);
+		P5.add(TF8);
+		P5.add(L13);
+		P5.add(TF9);
+		b6.addActionListener(this);
+		P5.add(b5);
+		b6.addActionListener(this);
+		P5.add(b6);
 
+		F1.setLayout(FL1);
+		F1.add(P4);
+		F1.add(P5);
+		
 		   if(e.getSource()==b1){// 시작 버튼
 				D1.setVisible(true);
 			}
 		   else if(e.getSource()==b2){
 				System.exit(0);
 		   }
-		   else if(e.getSource()==b3){// 300 *300
+		   else if(e.getSource()==b3){// 성적입력
 				F1.setVisible(true);
 				F1.setResizable(false);
 				D1.setVisible(false);
 			}
 		   else if(e.getSource()==b4){//뒤로가기
 				D1.setVisible(false);
+			}
+			else if(e.getSource() == b5){//계산하기
+				F2.setVisible(true);
+				F2.setResizable(false);
+				F1.setVisible(false);
+			}
+			else if(e.getSource()==b6){//성적입력에서 뒤로가기
+				F1.setVisible(false);
+				D1.setResizable(false);
+				D1.setVisible(true);
 			}
 	}
 	public void windowDeactivated(WindowEvent e){};

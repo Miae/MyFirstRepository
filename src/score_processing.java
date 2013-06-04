@@ -1,50 +1,43 @@
-import java.awt.Button;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
-
+import java.awt.*;
+import java.awt.event.*;
 public class score_processing extends Frame implements WindowListener,ActionListener {
 	GridLayout G1 = new GridLayout(2,1);
-	GridLayout G2 = new GridLayout(4,2);
+	GridLayout G2 = new GridLayout(5,2);
 	
-	Dialog D1 = new Dialog(this,"Á¤º¸ ÀÔ·Â");
+	Dialog D1 = new Dialog(this,"ì •ë³´ ì…ë ¥");
+	
+	Frame F1 = new Frame("ì„±ì  ì…ë ¥");
 
 	Panel P1 = new Panel();
 	Panel P2 = new Panel();
 	Panel P3 = new Panel();
 	
-	Button b1 = new Button("½ÃÀÛ");
-	Button b2 = new Button("³¡³»±â");
-	Button b3 = new Button("´ÙÀ½");
-	Button b4 = new Button("µÚ·Î");
+	Button b1 = new Button("ì‹œì‘");
+	Button b2 = new Button("ëë‚´ê¸°");
+	Button b3 = new Button("ë‹¤ìŒ");
+	Button b4 = new Button("ë’¤ë¡œ");
 
-	Label L1 = new Label("¾È³çÇÏ¼¼¿ä.¹Ì¸²¿©ÀÚÁ¤º¸°úÇĞ°íµîÇĞ±³ 3ÇĞ³â ÀÌ¹Ì¾ÖÀÔ´Ï´Ù.");
-	Label L2 = new Label("¡Ú¼ºÀûÃ³¸®ÇÁ·Î±×·¥¡Ú");
-	Label L3 = new Label("ÇĞ±³ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
-	Label L4 = new Label("ÇĞ³âÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.(¼ıÀÚ¸¸)");
-	Label L5 = new Label("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+	Label L1 = new Label("ì•ˆë…•í•˜ì„¸ìš”.ë¯¸ë¦¼ì—¬ìì •ë³´ê³¼í•™ê³ ë“±í•™êµ 3í•™ë…„ ì´ë¯¸ì• ì…ë‹ˆë‹¤.");
+	Label L2 = new Label("â˜…ì„±ì ì²˜ë¦¬í”„ë¡œê·¸ë¨â˜…");
+	Label L3 = new Label("í•™êµì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
+	Label L4 = new Label("í•™ë…„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.(ìˆ«ìë§Œ)");
+	Label L5 = new Label("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+	Label L6 = new Label("ì…ë ¥í•˜ì‹¤ ê³¼ëª© ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 	
 	TextField TF1 = new TextField();
 	TextField TF2 = new TextField();
 	TextField TF3 = new TextField();
+	TextField TF4 = new TextField();
 	
 	score_processing(){
-		super("¼ºÀûÃ³¸® ÇÁ·Î±×·¥");
+		super("ì„±ì ì²˜ë¦¬ í”„ë¡œê·¸ë¨");
 		P1.setLayout(G1);
 		P2.add(L1);
 		P2.add(L2);
 		P1.add(P2);
 		
 		P3.add(b1);
-		D1.setSize(400,200);//Á¤º¸ ÀÔ·Â
+		D1.setSize(400,200);//ì •ë³´ ì…ë ¥
 		b1.addActionListener(this);
 		D1.setLayout(G2);
 		D1.add(L3);
@@ -53,23 +46,49 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		D1.add(TF2);
 		D1.add(L5);
 		D1.add(TF3);
+		D1.add(L6);
+		D1.add(TF4);
+		b3.addActionListener(this);
 		D1.add(b3);
+		
+		F1.setSize(500,500);
+	
 		b4.addActionListener(this);
 		D1.add(b4);
 		
-		P3.add(b2);
+		b2.addActionListener(this);
+		P3.add(b2);	
 		P1.add(P3);
 
 		this.add(P1);
 		this.addWindowListener(this);
-		this.setSize(400,400);
+		this.setSize(500,500);
 		this.setVisible(true);
 	}
+
 	public void actionPerformed(ActionEvent e){
-		   if(e.getSource()==b1){// ½ÃÀÛ ¹öÆ°
+		String schoolname = TF1.getText();
+		String grade = TF2.getText();
+		String name = TF3.getText();
+
+		TF1.selectAll();
+		TF2.selectAll();
+		TF3.selectAll();
+		Label L7 = new Label(schoolname + " " + grade + "í•™ë…„ " + name + "í•™ìƒ ì•ˆë…•í•˜ì„¸ìš”. ë§Œë‚˜ì„œ ë°˜ê°‘ìŠµë‹ˆë‹¤.");
+		F1.add(L7);
+
+		   if(e.getSource()==b1){// ì‹œì‘ ë²„íŠ¼
 				D1.setVisible(true);
 			}
-		   else if(e.getSource()==b4){//µÚ·Î°¡±â
+		   else if(e.getSource()==b2){
+				System.exit(0);
+		   }
+		   else if(e.getSource()==b3){// 300 *300
+				F1.setVisible(true);
+				F1.setResizable(false);
+				D1.setVisible(false);
+			}
+		   else if(e.getSource()==b4){//ë’¤ë¡œê°€ê¸°
 				D1.setVisible(false);
 			}
 	}
@@ -84,23 +103,23 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	public void windowOpened(WindowEvent e){};
 	public static void main(String args[]) throws Exception {
 
-		System.out.println("¾È³çÇÏ¼¼¿ä ¹Ì¸²¿©ÀÚÁ¤º¸°úÇĞ°íµîÇĞ±³ 3ÇĞ³â ÀÎÅÍ·¢Æ¼ºê¹Ìµğ¾î°ú ÀÌ¹Ì¾ÖÀÔ´Ï´Ù.");
-		System.out.println("¡Ú¼ºÀûÃ³¸®ÇÁ·Î±×·¥¡Ú");
+		System.out.println("ì•ˆë…•í•˜ì„¸ìš” ë¯¸ë¦¼ì—¬ìì •ë³´ê³¼í•™ê³ ë“±í•™êµ 3í•™ë…„ ì¸í„°ë™í‹°ë¸Œë¯¸ë””ì–´ê³¼ ì´ë¯¸ì• ì…ë‹ˆë‹¤.");
+		System.out.println("â˜…ì„±ì ì²˜ë¦¬í”„ë¡œê·¸ë¨â˜…");
 
 		score_processing s_p = new score_processing();
 		/*while(true){
 		Scanner input = new Scanner(System.in);
 
-		System.out.print("ÇĞ±³¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("í•™êµë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String schoolname = input.next();
-		System.out.print("ÇĞ³âÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.(¼ıÀÚ¸¸ ÀÔ·Â) : ");
+		System.out.print("í•™ë…„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.(ìˆ«ìë§Œ ì…ë ¥) : ");
 		int grade = input.nextInt();
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 		String name = input.next();
 
-		System.out.println("¾È³çÇÏ¼¼¿ä. " + schoolname +" " + grade + "ÇĞ³â " + name + "ÇĞ»ı ¹İ°©½À´Ï´Ù.");
+		System.out.println("ì•ˆë…•í•˜ì„¸ìš”. " + schoolname +" " + grade + "í•™ë…„ " + name + "í•™ìƒ ë°˜ê°‘ìŠµë‹ˆë‹¤.");
 
-		System.out.print("Á¡¼ö¸¦ ÀÔ·ÂÇÏ½Ç °ú¸ñ¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+		System.out.print("ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹¤ ê³¼ëª©ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 		int subjectnum =input.nextInt();
 
 		String subject;
@@ -111,16 +130,16 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		double avg = 0;
 
 		for(int i = 1; i<=subjectnum; i++){
-			System.out.print("°ú¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("ê³¼ëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 			subject = input.next();
 			subjectsave[i-1] = subject;
 			//System.out.println(subjectsave[i-1]);
 
-			System.out.print(subject + "ÀÇ Á¡¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+			System.out.print(subject + "ì˜ ì ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 			subjectgrade = input.nextDouble();
 			if(subjectgrade>100){
-				System.out.println("°ú¸ñÁ¡¼ö´Â 100Á¡ ÀÌ»ó ÀûÀ¸½Ç ¼ö ¾ø½À´Ï´Ù. ´Ù½ÃÀû¾îÁÖ¼¼¿ä.");
-				System.out.print(subject + "ÀÇ Á¡¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
+				System.out.println("ê³¼ëª©ì ìˆ˜ëŠ” 100ì  ì´ìƒ ì ìœ¼ì‹¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë‹¤ì‹œì ì–´ì£¼ì„¸ìš”.");
+				System.out.print(subject + "ì˜ ì ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
 				subjectgrade = input.nextDouble();
 			}
 			else{
@@ -129,10 +148,10 @@ public class score_processing extends Frame implements WindowListener,ActionList
 			}
 			total +=subgradesave[i-1]; 
 		}
-		System.out.println(name + "ÇĞ»ıÀÇ ÃÑ Á¡¼ö´Â " + total + "Á¡ ÀÔ´Ï´Ù." );
+		System.out.println(name + "í•™ìƒì˜ ì´ ì ìˆ˜ëŠ” " + total + "ì  ì…ë‹ˆë‹¤." );
 		avg = total/subjectnum;
 		String avg2 = String.format("%.2f", avg);
-		System.out.println(name + "ÇĞ»ıÀÇ Æò±ÕÀº " + avg2 +"ÀÔ´Ï´Ù.");
+		System.out.println(name + "í•™ìƒì˜ í‰ê· ì€ " + avg2 +"ì…ë‹ˆë‹¤.");
 	}*/
 	}
 }

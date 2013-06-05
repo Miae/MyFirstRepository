@@ -8,7 +8,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	FlowLayout FL1 = new FlowLayout(FlowLayout.CENTER);
 
 	Dialog D1 = new Dialog(this,"정보 입력");
-	
+
 	Frame F1 = new Frame("성적 입력");
 	Frame F2 = new Frame("성적 결과");
 
@@ -18,7 +18,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	Panel P4 = new Panel();//성적입력창
 	Panel P5 = new Panel();
 	Panel P6 = new Panel();//성적 결과
-	
+
 	Button b1 = new Button("시작");
 	Button b2 = new Button("끝내기");
 	Button b3 = new Button("다음");
@@ -47,14 +47,14 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	TextField TF7 = new TextField();
 	TextField TF8 = new TextField();
 	TextField TF9 = new TextField();
-	
+
 	score_processing(){
 		super("성적처리 프로그램");
 		P1.setLayout(G1);
 		P2.add(L1);
 		P2.add(L2);
 		P1.add(P2);
-		
+
 		P3.add(b1);
 		D1.setSize(400,200);//정보 입력
 		b1.addActionListener(this);
@@ -69,16 +69,16 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		//D1.add(TF4);
 		b3.addActionListener(this);
 		D1.add(b3);
-		
+
 		F1.setSize(300,300);
 
 		F2.setSize(250,250);
-	
+
 		b4.addActionListener(this);
 		D1.add(b4);
-		
+
 		b2.addActionListener(this);
-		P3.add(b2);	
+		P3.add(b2); 
 		P1.add(P3);
 
 		this.add(P1);
@@ -91,90 +91,97 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		String schoolname = TF1.getText();
 		String grade = TF2.getText();
 		String name = TF3.getText();
-		//String subjectnum = TF4.getText();
-		
-		TF1.selectAll();
-		TF2.selectAll();
-		TF3.selectAll();
-		Label L7 = new Label(schoolname+" " + grade + "학년 " + name + "학생!");
-		Label L8 = new Label("안녕하세요. 만나서 반갑습니다.");
-		P4.add(L7);
-		P4.add(L8);
-		
-		P5.setLayout(G3);
-		P5.add(L9);
-		P5.add(TF5);
-		P5.add(L10);
-		P5.add(TF6);
-		P5.add(L11);
-		P5.add(TF7);
-		P5.add(L12);
-		P5.add(TF8);
-		P5.add(L13);
-		P5.add(TF9);
-		b5.addActionListener(this);
-		P5.add(b5);
-		b6.addActionListener(this);
-		P5.add(b6);
 
-		F1.setLayout(FL1);
-		F1.add(P4);
-		F1.add(P5);
-		
-		String korean = TF5.getText();
-		String math = TF6.getText();
-		String society = TF7.getText();
-		String science = TF8.getText();
-		String english= TF9.getText();
+		if(e.getSource()==b1){// 시작 버튼
+			D1.setVisible(true);
+		}
 
-		TF5.selectAll();
-		TF6.selectAll();
-		TF7.selectAll();
-		TF8.selectAll();
-		TF9.selectAll();
+		else if(e.getSource()==b2){
+			System.exit(0);
+		}
+		else if(e.getSource()==b3){// 성적입력
+			F1.setVisible(true);
+			F1.setResizable(false);
+			D1.setVisible(false);
+			//String subjectnum = TF4.getText();
 
-		Label L14 = new Label(name + "학생의 과목 점수들은");
-		Label L15 = new Label("국어점수 : " + korean);
-		Label L16 = new Label("수학점수 : " + math);
-		Label L17 = new Label("사회점수 : " + society);
-		Label L18 = new Label("과학점수 : " + science);
-		Label L19 = new Label("영어점수 : " + english);
-		
-		P6.add(L14);
-		P6.add(L15);
-		P6.add(L16);
-		P6.add(L17);
-		P6.add(L18);
-		P6.add(L19);
-		F2.add(P6);
+			TF1.selectAll();
+			TF2.selectAll();
+			TF3.selectAll();
 
-		int allnum = 0;
-		//allnum = (int)korean + (int)math + (int)society + (int)science + (int)english);
+			Label L7 = new Label(schoolname+" " + grade + "학년 " + name + "학생!");
+			Label L8 = new Label("안녕하세요. 만나서 반갑습니다.");
+			P4.add(L7);
+			P4.add(L8);
 
-		   if(e.getSource()==b1){// 시작 버튼
-				D1.setVisible(true);
-			}
-		   else if(e.getSource()==b2){
-				System.exit(0);
-		   }
-		   else if(e.getSource()==b3){// 성적입력
-				F1.setVisible(true);
-				F1.setResizable(false);
-				D1.setVisible(false);
-			}
-		   else if(e.getSource()==b4){//뒤로가기
-				D1.setVisible(false);
-			}
-			else if(e.getSource() == b5){//계산하기
-				F2.setVisible(true);
-				F2.setResizable(false);
-				F1.setVisible(false);
-			}
-			else if(e.getSource()==b6){//성적입력에서 뒤로가기
-				F1.setVisible(false);
-				D1.setResizable(false);
-				D1.setVisible(true);
-			}
+			P5.setLayout(G3);
+			P5.add(L9);
+			P5.add(TF5);
+			P5.add(L10);
+			P5.add(TF6);
+			P5.add(L11);
+			P5.add(TF7);
+			P5.add(L12);
+			P5.add(TF8);
+			P5.add(L13);
+			P5.add(TF9);
+			b5.addActionListener(this);
+			P5.add(b5);
+			b6.addActionListener(this);
+			P5.add(b6);
+
+			F1.setLayout(FL1);
+			F1.add(P4);
+			F1.add(P5);
+
+			/*int korean = Integer.parseInt(TF5.getText());
+int math = Integer.parseInt(TF6.getText());
+int society = Integer.parseInt(TF7.getText());
+int science = Integer.parseInt(TF8.getText());
+int english= Integer.parseInt(TF9.getText());
+int total = korean + math + society + science + english;
+int avg = total/5;
+String avg2 = String.format("%.2f", avg);
+			 */
+			TF5.selectAll();
+			TF6.selectAll();
+			TF7.selectAll();
+			TF8.selectAll();
+			TF9.selectAll();
+		}
+		else if(e.getSource()==b4){//뒤로가기
+			D1.setVisible(false);
+		}
+		else if(e.getSource() == b5){//계산하기
+			F2.setVisible(true);
+			F2.setResizable(false);
+			F1.setVisible(false);
+
+			Label L14 = new Label(name + "학생의 과목 점수들은");
+			Label L15 = new Label("국어점수 : " );
+			Label L16 = new Label("수학점수 : " );
+			Label L17 = new Label("사회점수 : " );
+			Label L18 = new Label("과학점수 : " );
+			Label L19 = new Label("영어점수 : " );
+
+			P6.add(L14);
+			P6.add(L15);
+			P6.add(L16);
+			P6.add(L17);
+			P6.add(L18);
+			P6.add(L19);
+
+			//Label L20 = new Label("총점 : " + total);
+			//Label L21 = new Label(name + "학생의 평균은 " + avg2 +"입니다.");
+			//P6.add(L20);
+			F2.add(P6);
+
+		}
+		else if(e.getSource()==b6){//성적입력에서 뒤로가기
+			F1.setVisible(false);
+			D1.setResizable(false);
+			D1.setVisible(true);
+		}
 	}
 	public void windowDeactivated(WindowEvent e){};
 	public void windowActivated(WindowEvent e){};
@@ -192,50 +199,50 @@ public class score_processing extends Frame implements WindowListener,ActionList
 
 		score_processing s_p = new score_processing();
 		/*while(true){
-		Scanner input = new Scanner(System.in);
+Scanner input = new Scanner(System.in);
 
-		System.out.print("학교를 입력해주세요 : ");
-		String schoolname = input.next();
-		System.out.print("학년을 입력해주세요.(숫자만 입력) : ");
-		int grade = input.nextInt();
-		System.out.print("이름을 입력해주세요. : ");
-		String name = input.next();
+System.out.print("학교를 입력해주세요 : ");
+String schoolname = input.next();
+System.out.print("학년을 입력해주세요.(숫자만 입력) : ");
+int grade = input.nextInt();
+System.out.print("이름을 입력해주세요. : ");
+String name = input.next();
 
-		System.out.println("안녕하세요. " + schoolname +" " + grade + "학년 " + name + "학생 반갑습니다.");
+System.out.println("안녕하세요. " + schoolname +" " + grade + "학년 " + name + "학생 반갑습니다.");
 
-		System.out.print("점수를 입력하실 과목수를 입력해주세요. : ");
-		int subjectnum =input.nextInt();
+System.out.print("점수를 입력하실 과목수를 입력해주세요. : ");
+int subjectnum =input.nextInt();
 
-		String subject;
-		String subjectsave[] = new String[subjectnum];
-		double subjectgrade;
-		double subgradesave[] = new double[subjectnum];
-		double total = 0;
-		double avg = 0;
+String subject;
+String subjectsave[] = new String[subjectnum];
+double subjectgrade;
+double subgradesave[] = new double[subjectnum];
+double total = 0;
+double avg = 0;
 
-		for(int i = 1; i<=subjectnum; i++){
-			System.out.print("과목을 입력해주세요 : ");
-			subject = input.next();
-			subjectsave[i-1] = subject;
-			//System.out.println(subjectsave[i-1]);
+for(int i = 1; i<=subjectnum; i++){
+System.out.print("과목을 입력해주세요 : ");
+subject = input.next();
+subjectsave[i-1] = subject;
+//System.out.println(subjectsave[i-1]);
 
-			System.out.print(subject + "의 점수를 입력해주세요. : ");
-			subjectgrade = input.nextDouble();
-			if(subjectgrade>100){
-				System.out.println("과목점수는 100점 이상 적으실 수 없습니다. 다시적어주세요.");
-				System.out.print(subject + "의 점수를 입력해주세요. : ");
-				subjectgrade = input.nextDouble();
-			}
-			else{
-			subgradesave[i-1] = subjectgrade;
-			//System.out.println(subgradesave[i-1]);
-			}
-			total +=subgradesave[i-1]; 
-		}
-		System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
-		avg = total/subjectnum;
-		String avg2 = String.format("%.2f", avg);
-		System.out.println(name + "학생의 평균은 " + avg2 +"입니다.");
-	}*/
+System.out.print(subject + "의 점수를 입력해주세요. : ");
+subjectgrade = input.nextDouble();
+if(subjectgrade>100){
+System.out.println("과목점수는 100점 이상 적으실 수 없습니다. 다시적어주세요.");
+System.out.print(subject + "의 점수를 입력해주세요. : ");
+subjectgrade = input.nextDouble();
+}
+else{
+subgradesave[i-1] = subjectgrade;
+//System.out.println(subgradesave[i-1]);
+}
+total +=subgradesave[i-1]; 
+}
+System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
+avg = total/subjectnum;
+String avg2 = String.format("%.2f", avg);
+System.out.println(name + "학생의 평균은 " + avg2 +"입니다.");
+}*/
 	}
 }

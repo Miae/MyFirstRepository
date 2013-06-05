@@ -110,7 +110,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 			TF3.selectAll();
 
 			Label L7 = new Label(schoolname+" " + grade + "학년 " + name + "학생!");
-			Label L8 = new Label("안녕하세요. 만나서 반갑습니다.");
+			Label L8 = new Label("안녕하세요. 만나서 반갑습니다. ");
 			P4.add(L7);
 			P4.add(L8);
 
@@ -133,21 +133,6 @@ public class score_processing extends Frame implements WindowListener,ActionList
 			F1.setLayout(FL1);
 			F1.add(P4);
 			F1.add(P5);
-
-			/*int korean = Integer.parseInt(TF5.getText());
-int math = Integer.parseInt(TF6.getText());
-int society = Integer.parseInt(TF7.getText());
-int science = Integer.parseInt(TF8.getText());
-int english= Integer.parseInt(TF9.getText());
-int total = korean + math + society + science + english;
-int avg = total/5;
-String avg2 = String.format("%.2f", avg);
-			 */
-			TF5.selectAll();
-			TF6.selectAll();
-			TF7.selectAll();
-			TF8.selectAll();
-			TF9.selectAll();
 		}
 		else if(e.getSource()==b4){//뒤로가기
 			D1.setVisible(false);
@@ -157,12 +142,28 @@ String avg2 = String.format("%.2f", avg);
 			F2.setResizable(false);
 			F1.setVisible(false);
 
-			Label L14 = new Label(name + "학생의 과목 점수들은");
-			Label L15 = new Label("국어점수 : " );
-			Label L16 = new Label("수학점수 : " );
-			Label L17 = new Label("사회점수 : " );
-			Label L18 = new Label("과학점수 : " );
-			Label L19 = new Label("영어점수 : " );
+			int korean = Integer.parseInt(TF5.getText());
+			int math = Integer.parseInt(TF6.getText());
+			int society = Integer.parseInt(TF7.getText());
+			int science = Integer.parseInt(TF8.getText());
+			int english= Integer.parseInt(TF9.getText());
+			
+			TF5.selectAll();
+			TF6.selectAll();
+			TF7.selectAll();
+			TF8.selectAll();
+			TF9.selectAll();
+
+
+			Label L14 = new Label(name + "학생의 과목 점수");
+			Label L15 = new Label("국어점수 : "  + korean );
+			Label L16 = new Label("수학점수 : " + math);
+			Label L17 = new Label("사회점수 : "  + society);
+			Label L18 = new Label("과학점수 : "  + science);
+			Label L19 = new Label("영어점수 : " + english);
+
+			int total = korean + math + society + science + english;
+			int avg = total/5;
 
 			P6.add(L14);
 			P6.add(L15);
@@ -171,9 +172,11 @@ String avg2 = String.format("%.2f", avg);
 			P6.add(L18);
 			P6.add(L19);
 
-			//Label L20 = new Label("총점 : " + total);
-			//Label L21 = new Label(name + "학생의 평균은 " + avg2 +"입니다.");
-			//P6.add(L20);
+			Label L20 = new Label("총점 : " + total);
+			Label L21 = new Label(name + "학생의 평균은 " + avg + "입니다.");
+			
+			P6.add(L20);
+			P6.add(L21);
 			F2.add(P6);
 
 		}

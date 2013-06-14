@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-public class score_processing extends Frame implements WindowListener,ActionListener {
+public class Score_processing extends Frame implements WindowListener,ActionListener {
 	GridLayout G1 = new GridLayout(2,1);
 	GridLayout G2 = new GridLayout(4,2);
 	GridLayout G3 = new GridLayout(6,2);
@@ -48,7 +48,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 	TextField TF8 = new TextField();
 	TextField TF9 = new TextField();
 
-	score_processing(){
+	Score_processing(){
 		super("성적처리 프로그램");
 		P1.setLayout(G1);
 		P2.add(L1);
@@ -200,7 +200,7 @@ public class score_processing extends Frame implements WindowListener,ActionList
 		System.out.println("안녕하세요 미림여자정보과학고등학교 3학년 인터랙티브미디어과 이미애입니다.");
 		System.out.println("★성적처리프로그램★");
 
-		score_processing s_p = new score_processing();
+		Score_processing s_p = new Score_processing();
 		/*while(true){
 Scanner input = new Scanner(System.in);
 

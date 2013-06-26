@@ -47,7 +47,7 @@ public class Score_processing_cui {
 					//System.out.println(subgradesave[i-1]);
 				}
 				total +=subgradesave[i-1]; 
-			}
+			}//z
 			System.out.println(name + "학생의 총 점수는 " + total + "점 입니다." );
 			avg = total/subjectnum;
 			String avg2 = String.format("%.2f", avg);
